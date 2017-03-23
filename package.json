@@ -17,8 +17,16 @@
     "karma-benchmark",
     "benchmark"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etpinard/karma-benchmark-json-reporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/etpinard/karma-benchmark-json-reporter/issues"
+  },
   "author": "Étienne Tétreault-Pinard",
   "license": "MIT",
+  "homepage": "https://github.com/etpinard/karma-benchmark-json-reporter#readme",
   "devDependencies": {
     "coveralls": "^2.12.0",
     "nyc": "^10.1.2",
