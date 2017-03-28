@@ -12,7 +12,7 @@ function run (dirName, cb) {
     if (err) throw err
 
     setTimeout(function () {
-      exec('npm start', { cwd: cwd }, function (err) {
+      exec('npm start -- --browsers Firefox', { cwd: cwd }, function (err) {
         if (err) throw err
 
         cb(cwd)
