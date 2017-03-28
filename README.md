@@ -39,16 +39,16 @@ module.exports = function (config) {
 }
 ```
 
-See complete examples in [example][example].
+See complete [examples][example].
 
 ## API
 
-The `benchmarkJsonReporter` option container has three settings
+The `benchmarkJsonReporter` option container has three settings:
 
 ### `pathToJson`
 
-String or array of strings corresponding to the path(s) from karma `basePath`
-of the output JSON files.
+String or array of strings corresponding to the path(s) from the karma `basePath`
+of the output JSON file(s).
 
 Default: `results.json` from the karma `basePath`.
 
@@ -62,11 +62,11 @@ object that is passed to `formatOutput`.
 
 Default: the identity function.
 
-Each compiled results item has the following keys:
+Each compiled results item corresponds to one benchmark run has the following keys:
 
 - `fullName`: full (and unique) run name concatenating `browser`, `suite` and
-`name` velues
-- `browser`: nbame of browser used
+`name` values
+- `browser`: name of browser used
 - `suite`: name of suite (as set in `suite('<>', function () {}`)
 - `name`: name of benchmark (as set in `benchmark('<>', function () {}`)
 - `count`: number of times the test was executed
@@ -81,7 +81,8 @@ Each compiled results item has the following keys:
 - `sem`: standard error of the mean
 - `sample`: list of sample points
 
-Note that the compiled results are sorted from fastest to slowest `hz` values.
+Note that the compiled results are sorted from fastest to slowest `hz` values
+before being passed to `formatResults`.
 
 ### `formatOutput`
 
@@ -90,10 +91,11 @@ JSON-serializable object that will be written in the output file(s).
 
 Defaults: `function (results) { return { results: results } }`.
 
-If `formatOutput` returns an array, then items in the array will written in
+If `formatOutput` returns an array, then items in the array will be written in
 separate JSON files in the same order as the given `pathToJson` array setting.
 
-Otherwise, the `formatOutput` return value gets JSON stringified into a single JSON file.
+Otherwise, the `formatOutput` return value gets JSON stringified into a single
+JSON file located at `pathToJson`.
 
 ## Credits
 
