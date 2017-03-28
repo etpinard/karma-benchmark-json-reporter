@@ -1,0 +1,19 @@
+{
+  "name": "karma-benchmark-json-reporter-example-multiple-output-files",
+  "version": "1.0.0",
+  "description": "Example of karma-benchmark-json-reporter",
+  "main": "bench.js",
+  "scripts": {
+    "start": "karma start karma.conf.js"
+  },
+  "keywords": [],
+  "author": "Étienne Tétreault-Pinard",
+  "license": "MIT",
+  "dependencies": {
+    "karma": "^1.5.0",
+    "karma-benchmark": "^0.7.1",
+    "karma-benchmark-json-reporter": "file:../../",
+    "karma-benchmarkjs-reporter": "^1.0.0",
+    "karma-firefox-launcher": "^1.0.1"
+  }
+}
