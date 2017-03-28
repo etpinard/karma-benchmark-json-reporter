@@ -12,31 +12,48 @@ tap.test('should normalize *pathToJson*', function (t) {
   t.test('with default config', function (t) {
     var out = _getPathToJson({}, '.')
 
-    t.equal(out, 'results.json')
+    t.same(out, ['results.json'])
     t.end()
   })
 
   t.test('with different *basePath*', function (t) {
     var out = _getPathToJson({}, '../example')
 
-    t.equal(out, '../example/results.json')
+    t.same(out, ['../example/results.json'])
     t.end()
   })
 
   t.test('with relative *pathToJson*', function (t) {
     var out = _getPathToJson({ pathToJson: 'stuff.json' }, '../example')
 
-    t.equal(out, '../example/stuff.json')
+    t.same(out, ['../example/stuff.json'])
     t.end()
   })
 
   t.test('with absolute *pathToJson*', function (t) {
     var out = _getPathToJson({ pathToJson: '/home/stuff.json' }, '../example')
 
-    t.equal(out, '/home/stuff.json')
+    t.same(out, ['/home/stuff.json'])
     t.end()
   })
 
+  t.test('with array *pathToJson*', function (t) {
+    var out = _getPathToJson({
+      pathToJson: [
+        '/home/stuff.json',
+        '',
+        'otherstuff.json',
+        null
+      ]}, '../example')
+
+    t.same(out, [
+      '/home/stuff.json',
+      '../example/results.json',
+      '../example/otherstuff.json',
+      '../example/results.json'
+    ])
+    t.end()
+  })
   t.end()
 })
 

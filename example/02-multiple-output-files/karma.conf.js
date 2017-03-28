@@ -6,14 +6,14 @@ module.exports = function (config) {
 
     // options for 'karma-benchmark-json-reporter'
     benchmarkJsonReporter: {
-      pathToJson: 'results.json',
+      pathToJson: ['results-iteration.json', 'results-fill.json'],
       formatResults: formatResults,
       formatOutput: formatOutput
     },
 
     basePath: '.',
-    browsers: ['Chrome'],
-    port: 9876,
+    browsers: ['Chrome', 'Firefox'],
+    port: 9877,
     colors: true,
     autoWatch: false,
     singleRun: true,
@@ -22,14 +22,22 @@ module.exports = function (config) {
 }
 
 function formatResults (results) {
-  return results
+  return {
+    iteration: results.filter(function (r) { return r.suite === 'Array iteration' }),
+    fill: results.filter(function (r) { return r.suite === 'Array fill' })
+  }
 }
 
 function formatOutput (results) {
-  return {
-    meta: {
-      title: 'example benchmark'
-    },
-    results: results
+  var meta = {
+    title: 'example benchmark'
   }
+
+  return [{
+    meta: meta,
+    results: results.iteration
+  }, {
+    meta: meta,
+    results: results.fill
+  }]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "karma-benchmark-json-reporter-example",
+  "name": "karma-benchmark-json-reporter-example-simple",
   "version": "1.0.0",
   "description": "Example of karma-benchmark-json-reporter",
   "main": "bench.js",
@@ -12,8 +12,9 @@
   "dependencies": {
     "karma": "^1.5.0",
     "karma-benchmark": "^0.7.1",
-    "karma-benchmark-json-reporter": "file:../",
+    "karma-benchmark-json-reporter": "file:../../",
     "karma-benchmarkjs-reporter": "^1.0.0",
-    "karma-chrome-launcher": "^2.0.0"
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.1"
   }
 }

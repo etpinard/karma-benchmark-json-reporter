@@ -37,8 +37,13 @@ var BenchReporter = function (baseReporterDecorator, config) {
   }
 
   this._writeToJson = function (output) {
-    fs.writeFile(pathToJson, JSON.stringify(output, null, 2), function (err) {
-      if (err) throw err
+    coerceToArray(output).forEach(function (o, i) {
+      var p = pathToJson[i]
+      var str = JSON.stringify(o, null, 2) + '\n'
+
+      fs.writeFile(p, str, function (err) {
+        if (err) throw err
+      })
     })
   }
 
@@ -46,19 +51,17 @@ var BenchReporter = function (baseReporterDecorator, config) {
 }
 
 function getPathToJson (config, opts) {
-  var out
-
-  if (typeof opts.pathToJson !== 'string') {
-    out = path.join(config.basePath, 'results.json')
-  } else {
-    if (path.isAbsolute(opts.pathToJson)) {
-      out = opts.pathToJson
+  return coerceToArray(opts.pathToJson).map(function (p) {
+    if (typeof p !== 'string' || p === '') {
+      return path.join(config.basePath, 'results.json')
     } else {
-      out = path.join(config.basePath, opts.pathToJson)
+      if (path.isAbsolute(p)) {
+        return p
+      } else {
+        return path.join(config.basePath, p)
+      }
     }
-  }
-
-  return out
+  })
 }
 
 function compileResults (resultSet) {
@@ -150,6 +153,12 @@ function calcHzDeviation (stats) {
 
 function isFunction (obj) {
   return typeof obj === 'function'
+}
+
+function coerceToArray (input) {
+  return Array.isArray(input)
+    ? input
+    : [input]
 }
 
 BenchReporter.$inject = ['baseReporterDecorator', 'config']
