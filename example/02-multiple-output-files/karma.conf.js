@@ -12,7 +12,7 @@ module.exports = function (config) {
     },
 
     basePath: '.',
-    browsers: ['Firefox'],
+    browsers: ['Chrome', 'Firefox'],
     port: 9877,
     colors: true,
     autoWatch: false,
