@@ -2,43 +2,43 @@ var tap = require('tap')
 var Mock = require('./mock')
 
 tap.test('should normalize *pathToJson*', function (t) {
-  function _getPathToJson (opts, basePath) {
+  function coerce (opts, basePath) {
     var config = Mock.mockConfig(opts, basePath)
     var reporter = Mock.mockReporter(config)
 
-    return reporter._getPathToJson(config, opts)
+    return reporter.__coercePathToJson(config, opts)
   }
 
   t.test('with default config', function (t) {
-    var out = _getPathToJson({}, '.')
+    var out = coerce({}, '.')
 
     t.same(out, ['results.json'])
     t.end()
   })
 
   t.test('with different *basePath*', function (t) {
-    var out = _getPathToJson({}, '../example')
+    var out = coerce({}, '../example')
 
     t.same(out, ['../example/results.json'])
     t.end()
   })
 
   t.test('with relative *pathToJson*', function (t) {
-    var out = _getPathToJson({ pathToJson: 'stuff.json' }, '../example')
+    var out = coerce({ pathToJson: 'stuff.json' }, '../example')
 
     t.same(out, ['../example/stuff.json'])
     t.end()
   })
 
   t.test('with absolute *pathToJson*', function (t) {
-    var out = _getPathToJson({ pathToJson: '/home/stuff.json' }, '../example')
+    var out = coerce({ pathToJson: '/home/stuff.json' }, '../example')
 
     t.same(out, ['/home/stuff.json'])
     t.end()
   })
 
   t.test('with array *pathToJson*', function (t) {
-    var out = _getPathToJson({
+    var out = coerce({
       pathToJson: [
         '/home/stuff.json',
         '',
