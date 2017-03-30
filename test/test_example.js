@@ -33,7 +33,6 @@ tap.test('should return correct JSON - simple case', function (t) {
     var res = read(cwd, 'results.json')
 
     t.equal(res.results.length, 2)
-    t.type(res.meta.title, 'string')
     t.end()
   })
 })

@@ -5,11 +5,8 @@ module.exports = function (config) {
     reporters: ['benchmark', 'benchmark-json'],
 
     // options for 'karma-benchmark-json-reporter'
-    benchmarkJsonReporter: {
-      pathToJson: 'results.json',
-      formatResults: formatResults,
-      formatOutput: formatOutput
-    },
+    // use defaults here
+    // benchmarkJsonReporter: {},
 
     basePath: '.',
     browsers: ['Chrome', 'Firefox'],
@@ -19,17 +16,4 @@ module.exports = function (config) {
     singleRun: true,
     logLevel: config.LOG_INFO
   })
-}
-
-function formatResults (results) {
-  return results
-}
-
-function formatOutput (results) {
-  return {
-    meta: {
-      title: 'example benchmark'
-    },
-    results: results
-  }
 }
