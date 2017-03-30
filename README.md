@@ -39,7 +39,7 @@ module.exports = function (config) {
 }
 ```
 
-See complete [examples][example].
+See complete working [examples][example] for more details.
 
 ## API
 
@@ -53,7 +53,7 @@ of the output JSON file(s).
 Default: `results.json` from the karma `basePath`.
 
 By setting `pathToJson` to an array of paths and customizing `formatOutput`, one
-can generate multiple output files. See [example][example-02].
+can generate multiple output files. See this [example][example-02] for more.
 
 ### `formatResults`
 
@@ -71,11 +71,11 @@ Each compiled results item corresponds to one benchmark run has the following ke
 - `name`: name of benchmark (as set in `benchmark('<>', function () {}`)
 - `count`: number of times the test was executed
 - `cycles`: number of cycles performed while benchmarking
-- `hz`: number of operations per sec
+- `hz`: number of operations per second
 - `hzDeviation`: standard  deviation in hz
-- `mean`: mean in secs benchmarkStats.mean,
-- `deviation`: standard deviation in secs
-- `variance`: variance in secs^2
+- `mean`: mean in seconds
+- `deviation`: standard deviation in seconds
+- `variance`: variance in seconds^2
 - `moe`: margin of error
 - `rme`: relative margin of error (in percentage of the mean)
 - `sem`: standard error of the mean
