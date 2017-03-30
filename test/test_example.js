@@ -49,3 +49,16 @@ tap.test('should return correct JSON - multiple output files case', function (t)
     t.end()
   })
 })
+
+tap.test('should return correct JSON - custom output info case', function (t) {
+  run('03-output-info', function (cwd) {
+    var res = read(cwd, 'benchmarks.json')
+
+    t.equal(res.results.length, 2)
+    t.type(res.meta.title, 'string')
+    t.type(res.meta.commit, 'string')
+    t.type(res.meta.version, 'string')
+    t.type(res.meta.date, 'string')
+    t.end()
+  })
+})
