@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "example benchmark",
+    "version": "1.0.0",
+    "commit": "51f0712228b0611ca15668a2d4da81590e4f0766",
+    "date": "3/30/2017 1:38:36 PM EDT"
+  },
+  "results": [
+    {
+      "fullName": "Array iteration-for-loop-Firefox 52.0.0 (Ubuntu 0.0.0)",
+      "hz": 46240717.37347291,
+      "hzDeviation": 8991504.231227795
+    },
+    {
+      "fullName": "Array iteration-forEach-Firefox 52.0.0 (Ubuntu 0.0.0)",
+      "hz": 24118070.811923243,
+      "hzDeviation": 8028338.106779359
+    }
+  ]
+}

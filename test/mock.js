@@ -1,4 +1,5 @@
 var BenchReporter = require('../')['reporter:benchmark-json'][1]
+var normalizePath = require('../lib/normalize_path')
 var NOOP = function () {}
 
 exports.mockReporter = function (config) {
@@ -8,6 +9,18 @@ exports.mockReporter = function (config) {
   // w/o having to write/read file
   reporter._writeToJson = function (output) {
     reporter.__output = output
+  }
+
+  // copied from index for a more 'real-life' test
+  // of normalizePath
+  reporter.__coercePathToJson = function (config, opts) {
+    var array = Array.isArray(opts.pathToJson)
+      ? opts.pathToJson
+      : [opts.pathToJson]
+
+    return array.map(function (p) {
+      return normalizePath(p, config.basePath, 'results.json')
+    })
   }
 
   // shortcut to call 'specSuccess' to fill in results
