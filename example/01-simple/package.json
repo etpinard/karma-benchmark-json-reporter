@@ -4,6 +4,7 @@
   "description": "Example of karma-benchmark-json-reporter",
   "main": "bench.js",
   "scripts": {
+    "clean": "rm results.json",
     "start": "karma start karma.conf.js"
   },
   "keywords": [],

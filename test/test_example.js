@@ -6,13 +6,14 @@ var tap = require('tap')
 var PATH_TO_EXAMPLE = path.join(__dirname, '..', 'example')
 
 function run (dirName, cb) {
+  var cmd = 'npm run clean && npm start -- --browsers Firefox'
   var cwd = path.join(PATH_TO_EXAMPLE, dirName)
 
   exec('npm install', { cwd: cwd }, function (err) {
     if (err) throw err
 
     setTimeout(function () {
-      exec('npm start -- --browsers Firefox', { cwd: cwd }, function (err) {
+      exec(cmd, { cwd: cwd }, function (err) {
         if (err) throw err
 
         cb(cwd)
