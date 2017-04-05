@@ -19,7 +19,7 @@ function run (dirName, cb) {
         cb(cwd)
       })
       .stdout.pipe(process.stdout)
-    }, 5000)
+    }, 2000)
   })
   .stdout.pipe(process.stdout)
 }
