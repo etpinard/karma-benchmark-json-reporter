@@ -17,11 +17,9 @@ function run (dirName, cb) {
         if (err) throw err
 
         cb(cwd)
-      })
-      .stdout.pipe(process.stdout)
+      }).stdout.pipe(process.stdout)
     }, 2000)
-  })
-  .stdout.pipe(process.stdout)
+  }).stdout.pipe(process.stdout)
 }
 
 function read (cwd, fileName) {

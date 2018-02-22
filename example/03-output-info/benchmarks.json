@@ -2,19 +2,19 @@
   "meta": {
     "title": "example benchmark",
     "version": "1.0.0",
-    "commit": "51f0712228b0611ca15668a2d4da81590e4f0766",
-    "date": "3/30/2017 1:38:36 PM EDT"
+    "commit": "7bef6297febdea9a23225a1fffad525c8b7c56ff",
+    "date": "2018-2-22 13:53:28 EST"
   },
   "results": [
     {
-      "fullName": "Array iteration-for-loop-Firefox 52.0.0 (Ubuntu 0.0.0)",
-      "hz": 46240717.37347291,
-      "hzDeviation": 8991504.231227795
+      "fullName": "Array iteration-forEach-Firefox 58.0.0 (Ubuntu 0.0.0)",
+      "hz": 31258324.433243107,
+      "hzDeviation": 9543070.828866879
     },
     {
-      "fullName": "Array iteration-forEach-Firefox 52.0.0 (Ubuntu 0.0.0)",
-      "hz": 24118070.811923243,
-      "hzDeviation": 8028338.106779359
+      "fullName": "Array iteration-for-loop-Firefox 58.0.0 (Ubuntu 0.0.0)",
+      "hz": 29863104.848018475,
+      "hzDeviation": 8934216.165054182
     }
   ]
 }
