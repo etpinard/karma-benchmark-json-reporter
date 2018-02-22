@@ -99,7 +99,7 @@ JSON file located at `pathToJson`.
 
 ## Credits
 
-2017 Étienne Tétreault-Pinard. MIT License
+2018 Étienne Tétreault-Pinard. MIT License
 
 [![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
