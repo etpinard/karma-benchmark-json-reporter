@@ -29,7 +29,7 @@
   "license": "MIT",
   "homepage": "https://github.com/etpinard/karma-benchmark-json-reporter#readme",
   "devDependencies": {
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.0.12",
     "nyc": "^11.4.1",
     "snazzy": "^7.0.0",
     "standard": "^11.0.0",
